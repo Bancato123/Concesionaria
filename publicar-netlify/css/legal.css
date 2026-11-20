@@ -1,0 +1,394 @@
+/* ==========================================================================
+   Concesionaria Kevin CONCESIONARIA - LEGAL PAGES & COOKIE BANNER STYLES
+   Coronel Oviedo, Paraguay | Mobile-First | Modern & Premium
+   ========================================================================== */
+
+.legal-page {
+  padding-top: 110px; /* space for fixed header */
+  padding-bottom: 5rem;
+  background-color: var(--gray-50);
+  min-height: 80vh;
+}
+
+.legal-page__header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.legal-page__header h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+  line-height: 1.15;
+}
+
+.legal-page__date {
+  color: var(--gray-500);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legal-page__date svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+}
+
+.legal-page__breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  margin-bottom: 1.5rem;
+}
+
+.legal-page__breadcrumb a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.legal-page__breadcrumb a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.legal-page__breadcrumb span {
+  color: var(--gray-400);
+}
+
+.legal-page__content {
+  max-width: 860px;
+  line-height: 1.8;
+  color: var(--gray-700);
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .legal-page__content {
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-md);
+  }
+}
+
+.legal-page__content section {
+  margin-bottom: 2.25rem;
+}
+
+.legal-page__content section:last-child {
+  margin-bottom: 0;
+}
+
+.legal-page__content h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-100);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.legal-page__content h2:first-of-type,
+.legal-page__content section:first-of-type h2 {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.legal-page__content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.legal-page__content p {
+  margin-bottom: 1.1rem;
+}
+
+.legal-page__content ul,
+.legal-page__content ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.75rem;
+  list-style: disc;
+}
+
+.legal-page__content ol {
+  list-style: decimal;
+}
+
+.legal-page__content li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.legal-page__content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(230, 57, 70, 0.4);
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.legal-page__content a:hover {
+  text-decoration-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+.legal-page__content strong {
+  color: var(--gray-900);
+  font-weight: 600;
+}
+
+.legal-page__content .table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.75rem 0;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+}
+
+.legal-page__content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  min-width: 600px;
+}
+
+.legal-page__content th {
+  background: var(--gray-100);
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--primary-dark);
+  border-bottom: 2px solid var(--gray-200);
+  white-space: nowrap;
+}
+
+.legal-page__content td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--gray-100);
+  color: var(--gray-700);
+  vertical-align: top;
+}
+
+.legal-page__content tr:last-child td {
+  border-bottom: none;
+}
+
+.legal-page__content tr:nth-child(even) td {
+  background-color: var(--gray-50);
+}
+
+.legal-page__content .highlight-box {
+  background: var(--gray-50);
+  border-left: 4px solid var(--accent);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 1.75rem 0;
+  border-top: 1px solid var(--gray-200);
+  border-right: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.legal-page__content .highlight-box p {
+  margin-bottom: 0.5rem;
+}
+
+.legal-page__content .highlight-box p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-nav-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.legal-nav-card {
+  padding: 1.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.legal-nav-card:hover {
+  background: var(--white);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.legal-nav-card__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.legal-nav-card__desc {
+  font-size: 0.8125rem;
+  color: var(--gray-500);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Cookie Consent Banner
+   ========================================================================== */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--primary-dark);
+  color: var(--white);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cookie-banner.visible {
+  transform: translateY(0);
+}
+
+.cookie-banner__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.cookie-banner__icon {
+  width: 32px;
+  height: 32px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.cookie-banner__text {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--gray-300);
+  flex: 1;
+}
+
+.cookie-banner__text p {
+  margin: 0;
+}
+
+.cookie-banner__text a {
+  color: var(--accent-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+}
+
+.cookie-banner__text a:hover {
+  color: var(--white);
+}
+
+.cookie-banner__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.cookie-banner__btn {
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-family: var(--font-body);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cookie-banner__btn--accept {
+  background: var(--accent);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.35);
+}
+
+.cookie-banner__btn--accept:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(230, 57, 70, 0.45);
+}
+
+.cookie-banner__btn--reject {
+  background: transparent;
+  color: var(--gray-300);
+  border: 1px solid var(--gray-600);
+}
+
+.cookie-banner__btn--reject:hover {
+  color: var(--white);
+  border-color: var(--gray-400);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    padding: 1.25rem 1rem;
+  }
+
+  .cookie-banner__inner {
+    flex-direction: column;
+    text-align: left;
+    gap: 1.25rem;
+  }
+
+  .cookie-banner__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .cookie-banner__btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+  }
+}

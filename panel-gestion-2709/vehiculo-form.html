@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title id="page-title">Nuevo Vehículo — Panel</title>
+  <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/panel.css">
+  <script src="../js/supabase-config.js"></script>
+  <!-- DB layer (localStorage) -->
+  <script src="../js/data.js"></script>
+  <script src="../js/db.js"></script>
+</head>
+<body class="admin">
+
+  <div id="admin-overlay" class="admin-overlay" aria-hidden="true"></div>
+
+  <aside id="admin-sidebar" class="admin__sidebar" aria-label="Navegación del panel">
+    <div class="admin__sidebar-header">
+      <a href="dashboard.html" class="admin__sidebar-logo">
+        <img src="../img/logo.svg" alt="Concesionaria Kevin" width="150" height="38">
+      </a>
+      <button id="admin-sidebar-close" class="admin__sidebar-close" aria-label="Cerrar menú">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="admin__sidebar-nav">
+      <a href="dashboard.html" class="admin__sidebar-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11 2 11.5 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+        <span>Vehículos</span>
+      </a>
+      <a href="vehiculo-form.html" class="admin__sidebar-link admin__sidebar-link--active">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        <span>Nuevo Vehículo</span>
+      </a>
+      <div class="admin__sidebar-separator"></div>
+      <button type="button" class="admin__sidebar-link" id="btn-logout">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span>Cerrar Sesión</span>
+      </button>
+    </nav>
+  </aside>
+
+  <div class="admin__main">
+    <header class="admin__topbar">
+      <div class="admin__topbar-left">
+        <button id="admin-hamburger" class="admin__hamburger" aria-label="Abrir menú lateral">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="admin__topbar-title" id="topbar-title">Nuevo Vehículo</h1>
+      </div>
+      <a href="dashboard.html" class="btn btn--ghost btn--sm">← Volver</a>
+    </header>
+
+    <div class="admin__content">
+      <form id="vehicle-form" class="vehicle-form" novalidate>
+
+        <!-- SECTION: Tipo -->
+        <section class="form-section">
+          <h2 class="form-section__title">Tipo de vehículo</h2>
+          <div class="type-selector">
+            <label class="type-option">
+              <input type="radio" name="type" value="auto" checked required>
+              <span class="type-option__card">
+                <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17a2 2 0 104 0 2 2 0 10-4 0m10 0a2 2 0 104 0 2 2 0 10-4 0"/><path d="M5 17H3v-4l2-5h10l2 5v4h-2m-8 0h4"/></svg>
+                Auto
+              </span>
+            </label>
+            <label class="type-option">
+              <input type="radio" name="type" value="moto">
+              <span class="type-option__card">
+                <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="16" r="3"/><circle cx="19" cy="16" r="3"/><path d="M12 16h-4l3-8h4l2 3h3"/><path d="M8 8h3"/></svg>
+                Moto
+              </span>
+            </label>
+          </div>
+        </section>
+
+        <!-- SECTION: Datos básicos -->
+        <section class="form-section">
+          <h2 class="form-section__title">Datos del vehículo</h2>
+          <div class="form-grid">
+            <div class="form__group">
+              <label for="f-brand" class="form__label">Marca <span class="required-dot">*</span></label>
+              <input type="text" id="f-brand" name="brand" class="form__input" placeholder="Ej: Toyota" required>
+            </div>
+            <div class="form__group">
+              <label for="f-model" class="form__label">Modelo <span class="required-dot">*</span></label>
+              <input type="text" id="f-model" name="model" class="form__input" placeholder="Ej: Hilux" required>
+            </div>
+            <div class="form__group">
+              <label for="f-year" class="form__label">Año <span class="required-dot">*</span></label>
+              <input type="number" id="f-year" name="year" class="form__input" placeholder="2023" min="1980" max="2030" required>
+            </div>
+            <div class="form__group">
+              <label for="f-price" class="form__label">Precio (₲) <span class="required-dot">*</span></label>
+              <input type="number" id="f-price" name="price" class="form__input" placeholder="145000000" min="0" required>
+            </div>
+            <div class="form__group">
+              <label for="f-fuel" class="form__label">Combustible</label>
+              <div class="select-wrapper">
+                <select id="f-fuel" name="fuel" class="form__select">
+                  <option value="">— Seleccioná —</option>
+                  <option value="Nafta">Nafta</option>
+                  <option value="Diésel">Diésel</option>
+                  <option value="Híbrido">Híbrido</option>
+                  <option value="Eléctrico">Eléctrico</option>
+                  <option value="Flex">Flex</option>
+                </select>
+              </div>
+            </div>
+            <div class="form__group">
+              <label for="f-transmission" class="form__label">Transmisión</label>
+              <div class="select-wrapper">
+                <select id="f-transmission" name="transmission" class="form__select">
+                  <option value="">— Seleccioná —</option>
+                  <option value="Manual">Manual</option>
+                  <option value="Automática">Automática</option>
+                  <option value="Secuencial">Secuencial</option>
+                </select>
+              </div>
+            </div>
+            <div class="form__group" id="group-displacement" hidden>
+              <label for="f-displacement" class="form__label">Cilindrada</label>
+              <input type="text" id="f-displacement" name="displacement" class="form__input" placeholder="Ej: 300cc">
+            </div>
+            <div class="form__group" id="group-doors">
+              <label for="f-doors" class="form__label">Puertas</label>
+              <div class="select-wrapper">
+                <select id="f-doors" name="doors" class="form__select">
+                  <option value="">— Seleccioná —</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+            </div>
+            <div class="form__group">
+              <label for="f-color" class="form__label">Color</label>
+              <input type="text" id="f-color" name="color" class="form__input" placeholder="Ej: Rojo">
+            </div>
+            <div class="form__group">
+              <label for="f-status" class="form__label">Estado <span class="required-dot">*</span></label>
+              <div class="select-wrapper">
+                <select id="f-status" name="status" class="form__select" required>
+                  <option value="disponible">Disponible</option>
+                  <option value="reservado">Reservado</option>
+                  <option value="vendido">Vendido</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label for="f-description" class="form__label">Descripción</label>
+            <textarea id="f-description" name="description" class="form__textarea" rows="4" placeholder="Describí el estado, equipamiento, historial de servicio…"></textarea>
+          </div>
+
+          <label class="toggle-featured">
+            <input type="checkbox" id="f-featured" name="featured">
+            <span class="toggle-featured__label">⭐ Destacar este vehículo en el inicio de la web</span>
+          </label>
+        </section>
+
+        <!-- SECTION: Fotos -->
+        <section class="form-section">
+          <h2 class="form-section__title">Fotos del vehículo</h2>
+          <p class="form-section__hint">Las fotos se comprimen automáticamente. La primera con ⭐ es la foto principal. Máximo 8 fotos.</p>
+
+          <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Subir fotos">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <p><strong>Tocá para elegir fotos</strong><br><span>o arrastrálas acá</span></p>
+            <span class="dropzone__hint">JPG, PNG, WEBP — máx. 10 MB cada una</span>
+          </div>
+          <!-- Input oculto FUERA del dropzone -->
+          <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/gif,.jpg,.jpeg,.png,.webp,.gif" multiple style="display:none;">
+
+          <div class="img-preview-grid" id="img-preview-grid"></div>
+
+          <div id="compress-progress" style="margin-top:.75rem; font-size:.875rem; color:var(--clr-primary);" hidden>
+            Comprimiendo fotos…
+          </div>
+        </section>
+
+        <!-- SUBMIT -->
+        <div class="form-actions">
+          <a href="dashboard.html" class="btn btn--ghost">Cancelar</a>
+          <button type="submit" class="btn btn--primary" id="submit-btn">
+            <span id="submit-text">Guardar Vehículo</span>
+            <svg id="submit-spinner" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin" hidden><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script>
+    // ════════════════════════════════════════════════════════
+    //  SCRIPT NORMAL — SIN MÓDULOS ES — 100% CONFIABLE
+    // ════════════════════════════════════════════════════════
+
+    // Auth is verified through Supabase; database policies remain authoritative.
+
+    // ── Imágenes
+    var vehicleImages  = [];
+    var MAX_IMAGES     = 8;
+    var IMAGE_MAX_W    = 1000;
+    var IMAGE_MAX_H    = 750;
+    var IMAGE_QUALITY  = 0.72;
+
+    // ── Toast
+    function showToast(msg, type, duration) {
+      type = type || 'success';
+      duration = duration || 4000;
+      var c = document.getElementById('toast-container');
+      var t = document.createElement('div');
+      t.className = 'toast toast--' + type;
+      t.textContent = msg;
+      c.appendChild(t);
+      setTimeout(function () { t.classList.add('toast--visible'); }, 10);
+      setTimeout(function () { t.classList.remove('toast--visible'); setTimeout(function () { t.remove(); }, 300); }, duration);
+    }
+
+    // ── Sidebar
+    var sidebar = document.getElementById('admin-sidebar');
+    var overlay = document.getElementById('admin-overlay');
+    document.getElementById('admin-hamburger').addEventListener('click', function () { sidebar.classList.add('open'); overlay.classList.add('active'); });
+    document.getElementById('admin-sidebar-close').addEventListener('click', function () { sidebar.classList.remove('open'); overlay.classList.remove('active'); });
+    overlay.addEventListener('click', function () { sidebar.classList.remove('open'); overlay.classList.remove('active'); });
+    document.getElementById('btn-logout').addEventListener('click', function () {
+      import('../js/panel/auth-panel.js').then(({ logout }) => logout());
+    });
+
+    // ── Estado
+    var params = new URLSearchParams(location.search);
+    var editId = params.get('id');
+
+    // ── Modo edición
+    if (editId) {
+      document.getElementById('page-title').textContent   = 'Editar Vehículo — Panel';
+      document.getElementById('topbar-title').textContent = 'Editar Vehículo';
+      document.getElementById('submit-text').textContent  = 'Guardar Cambios';
+
+      try {
+        var v = DB.getVehicle(editId);
+        if (!v) {
+          showToast('Vehículo no encontrado.', 'error');
+        } else {
+          // Tipo
+          var typeEl = document.querySelector('input[name="type"][value="' + v.type + '"]');
+          if (typeEl) typeEl.checked = true;
+          updateTypeFields();
+
+          // Campos
+          ['brand','model','year','price','fuel','transmission','displacement','color','description','status'].forEach(function (k) {
+            var el = document.getElementById('f-' + k);
+            if (el && v[k] != null) el.value = v[k];
+          });
+          if (v.doors) {
+            var doorsEl = document.getElementById('f-doors');
+            if (doorsEl) doorsEl.value = v.doors;
+          }
+          document.getElementById('f-featured').checked = !!v.featured;
+
+          // Imágenes
+          if (Array.isArray(v.images)) {
+            vehicleImages = v.images.map(function (img) {
+              if (typeof img === 'string') return { url: img, isPrimary: false };
+              return { url: img.url || '', isPrimary: !!img.isPrimary };
+            });
+            if (vehicleImages.length && !vehicleImages.some(function (i) { return i.isPrimary; })) {
+              vehicleImages[0].isPrimary = true;
+            }
+            refreshPreviews();
+          }
+        }
+      } catch (e) {
+        console.error('[Form] Error al cargar vehículo:', e);
+        showToast('Error al cargar el vehículo.', 'error');
+      }
+    }
+
+    // ── Tipo de vehículo
+    function updateTypeFields() {
+      var checked = document.querySelector('input[name="type"]:checked');
+      var isMoto  = checked && checked.value === 'moto';
+      document.getElementById('group-displacement').hidden = !isMoto;
+      document.getElementById('group-doors').hidden        =  isMoto;
+    }
+    document.querySelectorAll('input[name="type"]').forEach(function (r) {
+      r.addEventListener('change', updateTypeFields);
+    });
+    updateTypeFields();
+
+    // ── Comprimir imagen
+    function compressImage(file) {
+      return new Promise(function (resolve) {
+        var reader = new FileReader();
+        reader.onload = function (ev) {
+          var img = new Image();
+          img.onload = function () {
+            var w = img.width, h = img.height;
+            if (w > IMAGE_MAX_W || h > IMAGE_MAX_H) {
+              var ratio = Math.min(IMAGE_MAX_W / w, IMAGE_MAX_H / h);
+              w = Math.round(w * ratio);
+              h = Math.round(h * ratio);
+            }
+            var canvas = document.createElement('canvas');
+            canvas.width = w; canvas.height = h;
+            canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+            resolve(canvas.toDataURL('image/jpeg', IMAGE_QUALITY));
+          };
+          img.onerror = function () { resolve(ev.target.result); };
+          img.src = ev.target.result;
+        };
+        reader.onerror = function () { resolve(null); };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function handleFiles(files) {
+      var remaining = MAX_IMAGES - vehicleImages.length;
+      if (remaining <= 0) { showToast('Máximo ' + MAX_IMAGES + ' fotos.', 'error'); return; }
+      var toProcess = Array.prototype.slice.call(files, 0, remaining);
+      var progressEl = document.getElementById('compress-progress');
+      progressEl.hidden = false;
+
+      var promise = Promise.resolve();
+      toProcess.forEach(function (file) {
+        promise = promise.then(function () {
+          return compressImage(file).then(function (dataUrl) {
+            if (!dataUrl) return;
+            vehicleImages.push({ url: dataUrl, isPrimary: false });
+            if (!vehicleImages.some(function (i) { return i.isPrimary; })) vehicleImages[0].isPrimary = true;
+            refreshPreviews();
+          });
+        });
+      });
+      promise.then(function () { progressEl.hidden = true; });
+    }
+
+    function refreshPreviews() {
+      var grid = document.getElementById('img-preview-grid');
+      grid.innerHTML = '';
+      vehicleImages.forEach(function (img, idx) {
+        var card = document.createElement('div');
+        card.className = 'img-preview-card' + (img.isPrimary ? ' img-preview-card--primary' : '');
+        card.draggable = true;
+        card.dataset.idx = idx;
+        card.innerHTML =
+          '<img src="' + img.url + '" alt="Vista previa ' + (idx + 1) + '" loading="lazy">' +
+          (img.isPrimary ? '<span class="img-badge">Principal</span>' : '') +
+          '<div class="img-preview-actions">' +
+            (!img.isPrimary ? '<button type="button" class="btn-img-action btn-img-primary" title="Hacer principal">⭐</button>' : '') +
+            '<button type="button" class="btn-img-action btn-img-delete" title="Eliminar">🗑</button>' +
+          '</div>';
+
+        var primBtn = card.querySelector('.btn-img-primary');
+        if (primBtn) primBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          vehicleImages.forEach(function (im, i) { im.isPrimary = (i === idx); });
+          refreshPreviews();
+        });
+        card.querySelector('.btn-img-delete').addEventListener('click', function (e) {
+          e.stopPropagation();
+          vehicleImages.splice(idx, 1);
+          if (vehicleImages.length && !vehicleImages.some(function (i) { return i.isPrimary; })) vehicleImages[0].isPrimary = true;
+          refreshPreviews();
+        });
+
+        card.addEventListener('dragstart', function (e) { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', idx); card.classList.add('dragging'); });
+        card.addEventListener('dragend', function () { card.classList.remove('dragging'); });
+        card.addEventListener('dragover', function (e) { e.preventDefault(); card.classList.add('drag-over'); });
+        card.addEventListener('dragleave', function () { card.classList.remove('drag-over'); });
+        card.addEventListener('drop', function (e) {
+          e.preventDefault(); card.classList.remove('drag-over');
+          var fromIdx = parseInt(e.dataTransfer.getData('text/plain'));
+          if (fromIdx !== idx) {
+            var item = vehicleImages.splice(fromIdx, 1)[0];
+            vehicleImages.splice(idx, 0, item);
+            refreshPreviews();
+          }
+        });
+
+        grid.appendChild(card);
+      });
+    }
+
+    // ── Dropzone
+    var dropzone  = document.getElementById('dropzone');
+    var fileInput = document.getElementById('file-input');
+
+    dropzone.addEventListener('click', function () {
+      fileInput.value = '';
+      fileInput.click();
+    });
+    dropzone.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
+    });
+    fileInput.addEventListener('change', function () {
+      if (fileInput.files && fileInput.files.length > 0) {
+        handleFiles(fileInput.files);
+      }
+    });
+    dropzone.addEventListener('dragover', function (e) { e.preventDefault(); dropzone.classList.add('dropzone--over'); });
+    dropzone.addEventListener('dragleave', function () { dropzone.classList.remove('dropzone--over'); });
+    dropzone.addEventListener('drop', function (e) {
+      e.preventDefault(); dropzone.classList.remove('dropzone--over');
+      var dropped = Array.prototype.slice.call(e.dataTransfer.files || []).filter(function (f) {
+        return /^image\//i.test(f.type) || /\.(jpg|jpeg|png|webp|gif)$/i.test(f.name);
+      });
+      if (dropped.length) handleFiles(dropped);
+    });
+
+    // ── FORM SUBMIT — GUARDA EN LOCALSTORAGE VÍA DB
+    document.getElementById('vehicle-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      var btn     = document.getElementById('submit-btn');
+      var spinner = document.getElementById('submit-spinner');
+      var btnText = document.getElementById('submit-text');
+      btn.disabled        = true;
+      spinner.hidden      = false;
+      btnText.textContent = 'Guardando…';
+
+      try {
+        var form        = e.target;
+        var typeChecked = document.querySelector('input[name="type"]:checked');
+        var type        = typeChecked ? typeChecked.value : 'auto';
+
+        var brand = form.brand.value.trim();
+        var model = form.model.value.trim();
+        var year  = parseInt(form.year.value, 10);
+        var price = parseInt(form.price.value, 10);
+
+        if (!brand) throw new Error('El campo Marca es obligatorio.');
+        if (!model) throw new Error('El campo Modelo es obligatorio.');
+        if (isNaN(year)) throw new Error('El campo Año es obligatorio.');
+        if (isNaN(price) || price < 0) throw new Error('El campo Precio es obligatorio.');
+
+        var serializedImages = vehicleImages.map(function (img) {
+          return { url: img.url, isPrimary: Boolean(img.isPrimary) };
+        });
+
+        var vehicleData = {
+          type:         type,
+          brand:        brand,
+          model:        model,
+          year:         year,
+          price:        price,
+          mileage:      0,
+          condition:    'usado',
+          fuel:         form.fuel.value || null,
+          transmission: form.transmission.value || null,
+          displacement: type === 'moto' ? (form.displacement.value.trim() || null) : null,
+          doors:        type === 'auto' ? (parseInt(form.doors.value, 10) || null) : null,
+          color:        form.color.value.trim() || null,
+          status:       form.status.value || 'disponible',
+          featured:     Boolean(form.featured.checked),
+          description:  form.description.value.trim() || null,
+          images:       serializedImages
+        };
+
+        if (editId) vehicleData.id = editId;
+
+        // ── GUARDAR EN LOCALSTORAGE
+        var saved = DB.saveVehicle(vehicleData);
+        console.log('[Panel] Vehículo guardado OK:', saved);
+
+        try {
+          var sync = await import('../js/panel/vehicle-sync.js?v=20261119-2');
+          await sync.syncVehicle(saved.id);
+        } catch (syncError) {
+          console.error('[Panel] Vehículo guardado localmente, pero no se pudo sincronizar:', syncError);
+          var syncMessage = 'El vehículo quedó guardado en este panel, pero todavía no se publicó en el catálogo web.';
+          try {
+            var errorMessages = await import('../js/panel/error-messages.js');
+            syncMessage += ' ' + errorMessages.vehicleErrorMessage(syncError);
+          } catch {}
+          showToast(syncMessage, 'error', 6500);
+          setTimeout(function () { window.location.href = 'dashboard.html'; }, 1800);
+          return;
+        }
+
+        showToast(editId ? '✅ Vehículo actualizado con éxito' : '✅ Vehículo guardado con éxito', 'success');
+        setTimeout(function () { window.location.href = 'dashboard.html'; }, 1200);
+
+      } catch (err) {
+        console.error('[Panel] Error al guardar:', err);
+        var message = String(err.message || '');
+        if (!/^(El campo|No se encontró|Máximo)/i.test(message)) {
+          try {
+            var errorMessages = await import('../js/panel/error-messages.js');
+            message = errorMessages.vehicleErrorMessage(err);
+          } catch { message = 'No se pudo guardar o sincronizar el vehículo. Revisá Supabase e intentá de nuevo.'; }
+        }
+        showToast('❌ ' + message, 'error');
+        btn.disabled        = false;
+        spinner.hidden      = true;
+        btnText.textContent = editId ? 'Guardar Cambios' : 'Guardar Vehículo';
+      }
+    });
+  </script>
+  <script type="module">
+    import { requireAuth } from '../js/panel/auth-panel.js';
+    await requireAuth('index.html');
+  </script>
+</body>
+</html>

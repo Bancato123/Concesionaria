@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /panel-gestion-2709/
+
+Sitemap: https://concesionariakevin.com/sitemap.xml

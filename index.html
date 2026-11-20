@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concesionaria Kevin | Concesionaria de Autos y Motos en Coronel Oviedo</title>
+<meta name="theme-color" content="#0A1628">
+  <meta name="robots" content="index, follow">
+
+
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Barlow:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/legal.css">
+
+  <!-- Scripts loaded with defer -->
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/data.js"></script>
+  <script defer src="js/db.js"></script>
+  <script defer src="js/supabase-config.js"></script>
+  <script defer src="js/public-data.js"></script>
+  <script defer src="js/seo.js"></script>
+  <script defer src="js/whatsapp.js"></script>
+  <script defer src="js/forms.js"></script>
+  <script defer src="js/catalog.js"></script>
+  <script defer src="js/app.js"></script>
+  <script defer src="js/analytics.js"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="main-header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" id="header-logo" aria-label="Concesionaria Kevin Inicio">
+        <img src="img/logo.svg" alt="Concesionaria Kevin Logo" width="220" height="38" class="header__logo-img">
+      </a>
+
+      <nav class="header__nav" id="header-nav" aria-label="Navegación principal">
+        <a href="index.html" class="nav-link nav-link--active" id="nav-home">Inicio</a>
+        <a href="#catalogo" class="nav-link" id="nav-catalog">Catálogo</a>
+
+      </nav>
+
+      <div class="header__actions flex flex--center">
+        <button class="header__menu-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="header-nav">
+          <span class="header__menu-line"></span>
+          <span class="header__menu-line"></span>
+          <span class="header__menu-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero-section">
+      <div class="container hero__content">
+        <h1 class="hero__title">Tu próximo vehículo te espera</h1>
+        <!-- HERO SEARCH FORM -->
+        <form class="hero__search" id="hero-search-form" action="#catalogo" method="GET">
+          <div class="form__group">
+            <label for="hero-type" class="form__label">Tipo de Vehículo</label>
+            <div class="select-wrapper">
+              <select id="hero-type" name="type" class="form__select">
+                <option value="todos">Todos los tipos</option>
+                <option value="auto">Autos</option>
+                <option value="moto">Motos</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label for="hero-brand" class="form__label">Marca</label>
+            <div class="select-wrapper">
+              <select id="hero-brand" name="brand" class="form__select">
+                <option value="">Todas las marcas</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label for="hero-price" class="form__label">Rango de Precio</label>
+            <div class="select-wrapper">
+              <select id="hero-price" name="priceRange" class="form__select">
+                <option value="">Todos los precios</option>
+                <option value="0-50000000">Hasta ₲ 50.000.000</option>
+                <option value="50000000-100000000">₲ 50.000.000 - ₲ 100.000.000</option>
+                <option value="100000000-200000000">₲ 100.000.000 - ₲ 200.000.000</option>
+                <option value="200000000-999999999">₲ 200.000.000+</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn--primary" id="hero-search-btn" aria-label="Buscar vehículos">
+            <svg class="btn__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Buscar</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CATALOG SECTION -->
+    <section class="section catalog" id="catalogo">
+      <div class="container">
+        <div class="section__header text-center">
+          <h2 class="section__title">Nuestro Catálogo</h2>
+          <p class="section__subtitle">Encontrá el vehículo ideal según tus necesidades y presupuesto</p>
+        </div>
+
+        <!-- CATEGORY TABS -->
+        <div class="category-tabs" id="category-tabs" role="tablist" aria-label="Filtrar por categoría">
+          <button class="category-tab category-tab--active" data-type="todos" role="tab" aria-selected="true" id="tab-todos">
+            <span>Todos</span>
+            <span class="category-tab__count" id="tab-count-todos">(0)</span>
+          </button>
+          <button class="category-tab" data-type="auto" role="tab" aria-selected="false" id="tab-autos">
+            <svg class="tab__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 17a2 2 0 104 0 2 2 0 10-4 0m10 0a2 2 0 104 0 2 2 0 10-4 0"></path>
+              <path d="M5 17H3v-4l2-5h10l2 5v4h-2m-8 0h4"></path>
+            </svg>
+            <span>Autos</span>
+            <span class="category-tab__count" id="tab-count-autos">(0)</span>
+          </button>
+          <button class="category-tab" data-type="moto" role="tab" aria-selected="false" id="tab-motos">
+            <svg class="tab__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="5" cy="16" r="3"></circle>
+              <circle cx="19" cy="16" r="3"></circle>
+              <path d="M12 16h-4l3-8h4l2 3h3"></path>
+              <path d="M8 8h3"></path>
+            </svg>
+            <span>Motos</span>
+            <span class="category-tab__count" id="tab-count-motos">(0)</span>
+          </button>
+        </div>
+
+        <!-- CATALOG TOOLBAR / HEADER -->
+        <div class="catalog__header flex flex--between">
+          <div class="catalog__header-left flex flex--center">
+            <span class="results-count" id="results-count" aria-live="polite">Cargando catálogo...</span>
+            <button class="catalog__mobile-filter-btn btn btn--secondary btn--sm" id="mobile-filter-btn" aria-label="Abrir filtros de búsqueda">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+                <line x1="1" y1="14" x2="7" y2="14"></line>
+                <line x1="9" y1="8" x2="15" y2="8"></line>
+                <line x1="17" y1="16" x2="23" y2="16"></line>
+              </svg>
+              <span>Filtros</span>
+            </button>
+          </div>
+
+          <div class="catalog__header-right flex flex--center">
+            <!-- Search bar -->
+            <div class="search-bar">
+              <svg class="search-bar__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="search" class="search-bar__input" id="search-input" placeholder="Buscar por marca, modelo..." aria-label="Buscar vehículos">
+              <button class="search-bar__clear" id="search-clear" aria-label="Limpiar búsqueda" type="button">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Sort select -->
+            <div class="catalog__sort">
+              <label for="sort-select" class="visually-hidden">Ordenar por</label>
+              <div class="select-wrapper">
+                <select id="sort-select" class="form__select form__select--sm" aria-label="Ordenar vehículos">
+                  <option value="newest">Más recientes</option>
+                  <option value="price-asc">Precio: menor a mayor</option>
+                  <option value="price-desc">Precio: mayor a menor</option>
+                  <option value="year-desc">Año: más nuevo</option>
+                  <option value="year-asc">Año: más antiguo</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CATALOG MAIN LAYOUT -->
+        <div class="catalog__layout">
+          <!-- FILTERS SIDEBAR -->
+          <aside class="filters" id="filters-panel" aria-label="Filtros de catálogo">
+            <div class="filters__header flex flex--between">
+              <h3 class="filters__title">Filtros</h3>
+              <div class="filters__header-actions flex flex--center">
+                <button type="button" class="filters__reset btn btn--ghost btn--sm" id="reset-filters-btn">Limpiar</button>
+                <button type="button" class="filters__close btn btn--icon" id="close-filters-btn" aria-label="Cerrar panel de filtros">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="filters__body">
+              <!-- Filter: Marca -->
+              <div class="filters__group">
+                <label for="filter-brand" class="filters__label">Marca</label>
+                <div class="select-wrapper">
+                  <select id="filter-brand" class="filters__select">
+                    <option value="">Todas las marcas</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Filter: Año mín & máx -->
+              <div class="filters__group">
+                <label class="filters__label">Año</label>
+                <div class="grid grid--2 gap-sm">
+                  <div class="select-wrapper">
+                    <select id="filter-year-min" class="filters__select" aria-label="Año mínimo">
+                      <option value="">Mínimo</option>
+                      <option value="2025">2025</option>
+                      <option value="2024">2024</option>
+                      <option value="2023">2023</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2018">2018</option>
+                      <option value="2015">2015</option>
+                      <option value="2010">2010</option>
+                    </select>
+                  </div>
+                  <div class="select-wrapper">
+                    <select id="filter-year-max" class="filters__select" aria-label="Año máximo">
+                      <option value="">Máximo</option>
+                      <option value="2025">2025</option>
+                      <option value="2024">2024</option>
+                      <option value="2023">2023</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2018">2018</option>
+                      <option value="2015">2015</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Filter: Precio mín & máx -->
+              <div class="filters__group">
+                <label class="filters__label">Precio (₲)</label>
+                <div class="grid grid--2 gap-sm">
+                  <input type="number" id="filter-price-min" class="form__input form__input--sm" placeholder="₲ Mín" min="0" step="1000000" aria-label="Precio mínimo en Guaraníes">
+                  <input type="number" id="filter-price-max" class="form__input form__input--sm" placeholder="₲ Máx" min="0" step="1000000" aria-label="Precio máximo en Guaraníes">
+                </div>
+              </div>
+
+              <!-- Filter: Kilometraje máx -->
+              <div class="filters__group" id="group-mileage">
+                <label for="filter-mileage" class="filters__label">Kilometraje máx. (km)</label>
+                <input type="number" id="filter-mileage" class="form__input form__input--sm" placeholder="Ej: 100000" min="0" step="5000">
+              </div>
+
+              <!-- Filter: Combustible -->
+              <div class="filters__group" id="group-fuel">
+                <label for="filter-fuel" class="filters__label">Combustible</label>
+                <div class="select-wrapper">
+                  <select id="filter-fuel" class="filters__select">
+                    <option value="">Todos</option>
+                    <option value="Nafta">Nafta</option>
+                    <option value="Diésel">Diésel</option>
+                    <option value="Híbrido">Híbrido</option>
+                    <option value="Eléctrico">Eléctrico</option>
+                    <option value="Flex">Flex</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Filter: Transmisión -->
+              <div class="filters__group" id="group-transmission">
+                <label for="filter-transmission" class="filters__label">Transmisión</label>
+                <div class="select-wrapper">
+                  <select id="filter-transmission" class="filters__select">
+                    <option value="">Todas</option>
+                    <option value="Automática">Automática</option>
+                    <option value="Manual">Manual</option>
+                    <option value="Secuencial">Secuencial</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Filter: Estado -->
+              <div class="filters__group">
+                <label for="filter-status" class="filters__label">Disponibilidad</label>
+                <div class="select-wrapper">
+                  <select id="filter-status" class="filters__select">
+                    <option value="">Todos los estados</option>
+                    <option value="disponible">Disponible</option>
+                    <option value="reservado">Reservado</option>
+                    <option value="vendido">Vendido</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn--primary btn--block" id="apply-filters-btn">Aplicar Filtros</button>
+            </div>
+          </aside>
+
+          <!-- VEHICLES GRID & STATES -->
+          <div class="catalog__content">
+            <!-- Loading Skeletons -->
+            <div id="loading-skeleton" class="catalog__grid">
+              <div class="skeleton-card">
+                <div class="skeleton skeleton-image"></div>
+                <div class="skeleton-body">
+                  <div class="skeleton skeleton-text"></div>
+                  <div class="skeleton skeleton-text skeleton-text--short"></div>
+                  <div class="skeleton skeleton-text"></div>
+                </div>
+              </div>
+              <div class="skeleton-card">
+                <div class="skeleton skeleton-image"></div>
+                <div class="skeleton-body">
+                  <div class="skeleton skeleton-text"></div>
+                  <div class="skeleton skeleton-text skeleton-text--short"></div>
+                  <div class="skeleton skeleton-text"></div>
+                </div>
+              </div>
+              <div class="skeleton-card">
+                <div class="skeleton skeleton-image"></div>
+                <div class="skeleton-body">
+                  <div class="skeleton skeleton-text"></div>
+                  <div class="skeleton skeleton-text skeleton-text--short"></div>
+                  <div class="skeleton skeleton-text"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Real Vehicles Grid -->
+            <div class="catalog__grid" id="vehicles-grid" aria-live="polite"></div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state" hidden>
+              <div class="empty-state__icon">
+                <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </div>
+              <h3 class="empty-state__title">No encontramos vehículos con esos filtros</h3>
+              <p class="empty-state__text">Probá modificando o limpiando los filtros para ver más opciones disponibles en stock.</p>
+              <button type="button" class="btn btn--primary" id="empty-reset-btn">Restablecer filtros</button>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="pagination" id="pagination" aria-label="Paginación de vehículos"></nav>
+          </div>
+        </div>
+
+        <!-- MOBILE BACKDROP (fuera del grid para no romper el layout) -->
+        <div class="filters-overlay" id="filters-overlay" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="main-footer">
+    <div class="container">
+      <div class="footer__inner grid grid--4">
+        <!-- Brand Col -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo flex flex--center" aria-label="Concesionaria Kevin Inicio">
+            <img src="img/logo.svg" alt="Concesionaria Kevin Logo" width="160" height="40" class="footer__logo-img">
+          </a>
+          <p class="footer__text">Tu concesionaria de confianza en Coronel Oviedo. Autos y motos nuevos y usados con la mejor financiación y atención personalizada.</p>
+        </div>
+
+        <!-- Quick Links Col -->
+        <div class="footer__links">
+          <h4 class="footer__title">Enlaces Rápidos</h4>
+          <ul class="footer__list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#catalogo">Catálogo de Vehículos</a></li>
+            <li><a href="privacidad.html">Política de Privacidad</a></li>
+            <li><a href="terminos.html">Términos y Condiciones</a></li>
+            <li><a href="cookies.html">Política de Cookies</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Col -->
+        <div class="footer__contact">
+          <h4 class="footer__title">Contacto &amp; Ubicación</h4>
+          <ul class="footer__contact-list">
+            <li class="flex">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Coronel Oviedo, Paraguay</span>
+            </li>
+            <li class="flex">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+              </svg>
+              <a href="tel:0994233136">0994 233 136</a>
+            </li>
+            <li class="flex">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              <a href="https://wa.me/595994233136" target="_blank" rel="noopener noreferrer">+595 994 233 136</a>
+            </li>
+            <li class="flex">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Lun-Vie: 8:00 - 18:00<br>Sáb: 8:00 - 12:00</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social Col -->
+        <div class="footer__social">
+          <h4 class="footer__title">Contactanos</h4>
+          <p class="footer__text">Consultá por nuestros vehículos directamente por WhatsApp:</p>
+          <div class="footer__social-links flex">
+            <a href="https://wa.me/595994233136" class="btn btn--icon btn--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom flex flex--between">
+        <p>© 2024 Concesionaria Kevin. Todos los derechos reservados.</p>
+        <p>Coronel Oviedo, Paraguay</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+</body>
+</html>

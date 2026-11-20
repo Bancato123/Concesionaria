@@ -1,0 +1,25 @@
+{
+  "name": "Concesionaria Kevin - Concesionaria de Autos y Motos",
+  "short_name": "Concesionaria Kevin",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0A1628",
+  "theme_color": "#0A1628",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "img/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "shopping",
+    "automotive",
+    "business"
+  ],
+  "lang": "es-PY",
+  "dir": "ltr"
+}
