@@ -1,6 +1,6 @@
 /**
  * Image Handler — Compress, Resize & Convert to WebP
- * Panel de Gestión — Concesionaria Kevin
+ * Panel de Gestión — Concesionaria Esteban
  */
 
 import { requireSupabase, SUPABASE_CONFIG, IMAGES_BUCKET, IMAGE_MAX_WIDTH, IMAGE_MAX_HEIGHT, IMAGE_QUALITY } from '../supabase-client.js';

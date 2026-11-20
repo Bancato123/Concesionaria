@@ -1,5 +1,5 @@
 -- ============================================================================
--- Concesionaria Kevin — Esquema de Supabase
+-- Concesionaria Esteban — Esquema de Supabase
 -- Ejecutá TODO este archivo en Supabase → SQL Editor → New query → Run.
 --
 -- Crea:
@@ -54,7 +54,7 @@ create table if not exists public.vehicles (
 );
 
 comment on table public.vehicles is
-  'Inventario de autos y motos de Concesionaria Kevin.';
+  'Inventario de autos y motos de Concesionaria Esteban.';
 comment on column public.vehicles.images is
   'Array JSON de imágenes: [{"url": "...", "path": "vehicleId/archivo.webp", "isPrimary": true}]';
 comment on column public.vehicles.displacement is

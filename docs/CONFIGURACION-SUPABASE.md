@@ -1,4 +1,4 @@
-# ⚙️ Configuración de Supabase — Concesionaria Kevin
+# ⚙️ Configuración de Supabase — Concesionaria Esteban
 
 Guía paso a paso para conectar el **Panel de Gestión** (`/panel-gestion-2709/`) y el sitio público con una base de datos en la nube.
 

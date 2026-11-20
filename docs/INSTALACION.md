@@ -1,8 +1,8 @@
 # 🚀 Guía de Instalación y Publicación en Internet
-## Sitio Web Oficial & Panel Administrativo — Concesionaria Kevin & Motos
+## Sitio Web Oficial & Panel Administrativo — Concesionaria Esteban & Motos
 ### Coronel Oviedo, Paraguay
 
-Esta guía está diseñada paso a paso para que cualquier persona (incluso sin conocimientos técnicos de programación) pueda poner en línea el sitio web de **Concesionaria Kevin & Motos** en cuestión de minutos y comenzar a recibir clientes de inmediato.
+Esta guía está diseñada paso a paso para que cualquier persona (incluso sin conocimientos técnicos de programación) pueda poner en línea el sitio web de **Concesionaria Esteban & Motos** en cuestión de minutos y comenzar a recibir clientes de inmediato.
 
 ---
 

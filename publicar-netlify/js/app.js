@@ -1,5 +1,5 @@
 /**
- * Concesionaria Kevin - Concesionaria de Autos y Motos
+ * Concesionaria Esteban - Concesionaria de Autos y Motos
  * app.js - Inicialización global de la aplicación
  */
 
@@ -240,7 +240,7 @@ function renderDefaultFloatingButtons() {
   const container = document.createElement('div');
   container.className = 'floating-buttons';
   container.innerHTML = `
-    <a href="https://wa.me/595994233136?text=Hola%20Concesionaria Kevin,%20quisiera%20consultar%20sobre%20un%20veh%C3%ADculo" 
+    <a href="https://wa.me/595994233136?text=Hola%20Concesionaria Esteban,%20quisiera%20consultar%20sobre%20un%20veh%C3%ADculo" 
        class="floating-btn floating-btn--whatsapp" 
        target="_blank" 
        rel="noopener noreferrer" 

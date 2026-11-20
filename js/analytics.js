@@ -1,6 +1,6 @@
 /**
  * Analytics & Cookie Consent Manager
- * Concesionaria Kevin - Concesionaria de Autos y Motos
+ * Concesionaria Esteban - Concesionaria de Autos y Motos
  * Coronel Oviedo, Paraguay
  */
 
@@ -149,7 +149,7 @@ const ANALYTICS = {
    */
   loadGoogleAnalytics() {
     if (this.GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') {
-      console.info('[Concesionaria Kevin Analytics] Google Analytics no configurado. Reemplazá G-XXXXXXXXXX con tu Measurement ID.');
+      console.info('[Concesionaria Esteban Analytics] Google Analytics no configurado. Reemplazá G-XXXXXXXXXX con tu Measurement ID.');
       return;
     }
     
@@ -176,7 +176,7 @@ const ANALYTICS = {
       'page_location': window.location.href
     });
     
-    console.info('[Concesionaria Kevin Analytics] Google Analytics cargado correctamente.');
+    console.info('[Concesionaria Esteban Analytics] Google Analytics cargado correctamente.');
   },
 
   /**

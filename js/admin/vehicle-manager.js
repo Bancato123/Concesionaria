@@ -1,5 +1,5 @@
 /**
- * Concesionaria Kevin CONCESIONARIA - VEHICLE CREATE / EDIT FORM LOGIC
+ * Concesionaria Esteban CONCESIONARIA - VEHICLE CREATE / EDIT FORM LOGIC
  * Manages form state, dynamic fields by vehicle type, image upload with base64 conversion,
  * client-side validations, card preview modal, and storage persistence.
  */
@@ -24,7 +24,7 @@
   var editingVehicleId = null;
 
   // Placeholder SVG image for vehicles without images
-  var DEFAULT_PLACEHOLDER_IMG = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22400%22%20viewBox%3D%220%200%20600%20400%22%3E%3Crect%20fill%3D%22%231B2D4A%22%20width%3D%22600%22%20height%3D%22400%22%2F%3E%3Cpath%20d%3D%22M150%20270l80-90%2070%2070%2090-110%20110%20130H150z%22%20fill%3D%22%232A4365%22%2F%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22160%22%20r%3D%2235%22%20fill%3D%22%23FF6B00%22%20opacity%3D%220.8%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%22330%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20fill%3D%22%23CBD5E1%22%20text-anchor%3D%22middle%22%3EConcesionaria Kevin%20-%20FOTO%20NO%20DISPONIBLE%3C%2Ftext%3E%3C%2Fsvg%3E';
+  var DEFAULT_PLACEHOLDER_IMG = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22400%22%20viewBox%3D%220%200%20600%20400%22%3E%3Crect%20fill%3D%22%231B2D4A%22%20width%3D%22600%22%20height%3D%22400%22%2F%3E%3Cpath%20d%3D%22M150%20270l80-90%2070%2070%2090-110%20110%20130H150z%22%20fill%3D%22%232A4365%22%2F%3E%3Ccircle%20cx%3D%22220%22%20cy%3D%22160%22%20r%3D%2235%22%20fill%3D%22%23FF6B00%22%20opacity%3D%220.8%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%22330%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20fill%3D%22%23CBD5E1%22%20text-anchor%3D%22middle%22%3EConcesionaria Esteban%20-%20FOTO%20NO%20DISPONIBLE%3C%2Ftext%3E%3C%2Fsvg%3E';
 
   function safeFormatPrice(amount) {
     if (typeof formatPrice === 'function') {

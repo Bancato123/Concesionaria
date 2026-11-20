@@ -1,5 +1,5 @@
 # 📖 Manual de Uso del Panel de Gestión
-## Concesionaria Kevin & Motos — Coronel Oviedo, Paraguay
+## Concesionaria Esteban & Motos — Coronel Oviedo, Paraguay
 
 Este es el manual del **Panel de Gestión con Supabase**, el único panel activo del sitio. Reemplaza al antiguo `/admin/`, que guardaba los datos solo en un navegador.
 
@@ -149,4 +149,4 @@ En **Supabase** (PostgreSQL + Storage), no en el navegador:
 
 ---
 
-*Concesionaria Kevin & Motos — Potenciando tu concesionaria en Coronel Oviedo.*
+*Concesionaria Esteban & Motos — Potenciando tu concesionaria en Coronel Oviedo.*

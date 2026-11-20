@@ -1,5 +1,5 @@
 /**
- * Concesionaria Kevin CONCESIONARIA - FORM VALIDATION & SUBMISSION HANDLER
+ * Concesionaria Esteban CONCESIONARIA - FORM VALIDATION & SUBMISSION HANDLER
  * Coronel Oviedo, Paraguay
  */
 
@@ -257,7 +257,7 @@ const FORMS = {
       vehicleId,
       vehicleName,
       type: vehicleId ? 'vehiculo' : 'general',
-      successMessage: '¡Gracias por contactarnos! Un asesor de Concesionaria Kevin te responderá a la brevedad.'
+      successMessage: '¡Gracias por contactarnos! Un asesor de Concesionaria Esteban te responderá a la brevedad.'
     });
   },
 

@@ -1,5 +1,5 @@
 /**
- * Supabase Configuration — Concesionaria Kevin
+ * Supabase Configuration — Concesionaria Esteban
  * Coronel Oviedo, Paraguay
  *
  * IMPORTANTE: reemplazá `url` y `anonKey` con los valores de tu proyecto

@@ -1,6 +1,6 @@
 /**
  * Vehicles CRUD + Inquiries — Supabase backend
- * Panel de Gestión — Concesionaria Kevin
+ * Panel de Gestión — Concesionaria Esteban
  */
 
 import {

@@ -1,5 +1,5 @@
 /**
- * Concesionaria Kevin CONCESIONARIA - INQUIRIES & LEADS MANAGEMENT
+ * Concesionaria Esteban CONCESIONARIA - INQUIRIES & LEADS MANAGEMENT
  * Handles customer message display, read/unread states, WhatsApp direct responses,
  * status filtering, and deletion confirmations.
  */
@@ -209,7 +209,7 @@
 
       // WhatsApp reply button
       if (phone) {
-        var replyMsg = 'Hola ' + (inq.name || 'Cliente') + ', gracias por comunicarte con Concesionaria Kevin & Motos en Coronel Oviedo';
+        var replyMsg = 'Hola ' + (inq.name || 'Cliente') + ', gracias por comunicarte con Concesionaria Esteban & Motos en Coronel Oviedo';
         if (vehicleName) {
           replyMsg += ' sobre ' + vehicleName;
         }

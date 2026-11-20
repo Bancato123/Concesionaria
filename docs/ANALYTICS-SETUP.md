@@ -1,6 +1,6 @@
 # Guía de Configuración: Google Analytics y Google Search Console
 
-Esta guía paso a paso te explica cómo configurar **Google Analytics 4 (GA4)** y **Google Search Console (GSC)** en el sitio web de **Concesionaria Kevin**, de forma sencilla y sin conocimientos técnicos avanzados.
+Esta guía paso a paso te explica cómo configurar **Google Analytics 4 (GA4)** y **Google Search Console (GSC)** en el sitio web de **Concesionaria Esteban**, de forma sencilla y sin conocimientos técnicos avanzados.
 
 ---
 
@@ -12,8 +12,8 @@ Google Analytics te permite conocer cuántas personas visitan el sitio web, qué
 1. Ingresá a [https://analytics.google.com](https://analytics.google.com).
 2. Iniciá sesión con tu cuenta de Google (Gmail).
 3. Hacé clic en el botón azul **"Empezar a medir"**.
-4. **Nombre de la cuenta:** Ingresá `Concesionaria Kevin`.
-5. **Nombre de la propiedad:** Ingresá `Sitio Web Concesionaria Kevin`.
+4. **Nombre de la cuenta:** Ingresá `Concesionaria Esteban`.
+5. **Nombre de la propiedad:** Ingresá `Sitio Web Concesionaria Esteban`.
 6. Seleccioná tu zona horaria (**Paraguay / Asunción**) y la moneda (**Guaraní paraguayo - PYG** o **Dólar estadounidense - USD**).
 7. Completá los detalles de la empresa:
    - **Categoría:** *Automóviles y vehículos*.

@@ -1,5 +1,5 @@
 /**
- * Concesionaria Kevin CONCESIONARIA - ADMIN DASHBOARD LOGIC
+ * Concesionaria Esteban CONCESIONARIA - ADMIN DASHBOARD LOGIC
  * Manages stats visualization, animated counters, vehicle table rendering, status updates, and delete confirmations.
  */
 

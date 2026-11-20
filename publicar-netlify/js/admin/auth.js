@@ -1,5 +1,5 @@
 /**
- * Concesionaria Kevin CONCESIONARIA - ADMIN AUTH & LAYOUT CONTROLLER
+ * Concesionaria Esteban CONCESIONARIA - ADMIN AUTH & LAYOUT CONTROLLER
  * Handles session protection, login/logout, sidebar toggling, and global admin behaviors.
  */
 

@@ -1,5 +1,5 @@
 /**
- * Concesionaria Kevin CONCESIONARIA - WHATSAPP & SOCIAL INTEGRATION
+ * Concesionaria Esteban CONCESIONARIA - WHATSAPP & SOCIAL INTEGRATION
  * Coronel Oviedo, Paraguay
  */
 
@@ -11,7 +11,7 @@ const WHATSAPP = {
    * @returns {string}
    */
   getGeneralLink() {
-    const message = 'Hola, me interesa conocer los vehículos disponibles en Concesionaria Kevin. ¿Me pueden dar más información?';
+    const message = 'Hola, me interesa conocer los vehículos disponibles en Concesionaria Esteban. ¿Me pueden dar más información?';
     return (typeof createWhatsAppLink === 'function')
       ? createWhatsAppLink(this.PHONE, message)
       : `https://wa.me/${this.PHONE}?text=${encodeURIComponent(message)}`;
@@ -41,7 +41,7 @@ const WHATSAPP = {
     if (!inquiry || !inquiry.phone) return '';
     const name = inquiry.name || 'Cliente';
     const context = inquiry.vehicleName ? ` acerca del ${inquiry.vehicleName}` : '';
-    const message = `Hola ${name}, gracias por tu consulta en Concesionaria Kevin${context}. Te escribimos para responder a tu mensaje: "${inquiry.message || ''}". ¿En qué más podemos ayudarte hoy?`;
+    const message = `Hola ${name}, gracias por tu consulta en Concesionaria Esteban${context}. Te escribimos para responder a tu mensaje: "${inquiry.message || ''}". ¿En qué más podemos ayudarte hoy?`;
 
     return (typeof createWhatsAppLink === 'function')
       ? createWhatsAppLink(inquiry.phone, message)

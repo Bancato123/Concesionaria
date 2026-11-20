@@ -1,6 +1,6 @@
 /**
  * Panel Auth — Autenticación real con Supabase
- * Concesionaria Kevin — /panel-gestion-2709/
+ * Concesionaria Esteban — /panel-gestion-2709/
  */
 
 import { supabase, requireSupabase, SUPABASE_CONFIGURED } from '../supabase-client.js';

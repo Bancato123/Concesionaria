@@ -1,5 +1,5 @@
 /**
- * Concesionaria Kevin CONCESIONARIA - MOCK DATA & CONSTANTS
+ * Concesionaria Esteban CONCESIONARIA - MOCK DATA & CONSTANTS
  * Coronel Oviedo, Paraguay
  */
 
@@ -88,7 +88,7 @@ const DEFAULT_INQUIRIES = [
     name: 'Rodrigo Vera',
     phone: '595985443322',
     email: 'r.vera@outlook.com',
-    message: 'Hola equipo Concesionaria Kevin, ¿cuál es el horario de atención en el local de Coronel Oviedo los días sábados?',
+    message: 'Hola equipo Concesionaria Esteban, ¿cuál es el horario de atención en el local de Coronel Oviedo los días sábados?',
     type: 'general',
     read: true,
     responded: false,

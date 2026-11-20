@@ -1,6 +1,6 @@
 /**
  * PUBLIC_DATA — Adaptador de datos públicos (Supabase → sitio web)
- * Concesionaria Kevin
+ * Concesionaria Esteban
  *
  * - Si Supabase está configurado, el catálogo y la ficha de vehículo leen
  *   directamente de la tabla `vehicles` y las consultas se insertan en

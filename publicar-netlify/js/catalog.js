@@ -1,5 +1,5 @@
 /**
- * Concesionaria Kevin - Concesionaria de Autos y Motos
+ * Concesionaria Esteban - Concesionaria de Autos y Motos
  * catalog.js - Lógica completa del catálogo de vehículos, filtros, búsqueda y paginación
  */
 
@@ -767,7 +767,7 @@ function createVehicleCard(vehicle, index = 0) {
           <img 
             src="${imgSrc}" 
             data-src="${imgSrc}" 
-            alt="${title} en venta en Concesionaria Kevin Coronel Oviedo" 
+            alt="${title} en venta en Concesionaria Esteban Coronel Oviedo" 
             class="vehicle-card__img" 
             loading="lazy" 
             onerror="this.onerror=null; this.src='img/placeholder-vehicle.svg';"

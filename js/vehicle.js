@@ -1,5 +1,5 @@
 /**
- * Concesionaria Kevin - Concesionaria de Autos y Motos
+ * Concesionaria Esteban - Concesionaria de Autos y Motos
  * vehicle.js - Lógica completa de la página de detalle de vehículo
  */
 
@@ -125,7 +125,7 @@ function showErrorState() {
     breadcrumbCurrent.textContent = 'Vehículo no encontrado';
   }
 
-  document.title = 'Vehículo no encontrado | Concesionaria Kevin';
+  document.title = 'Vehículo no encontrado | Concesionaria Esteban';
 }
 
 /**
@@ -436,8 +436,8 @@ function setupActionButtons(v) {
       if (navigator.share) {
         try {
           await navigator.share({
-            title: `${title} | Concesionaria Kevin`,
-            text: `Mirá este ${title} disponible en Concesionaria Kevin, Coronel Oviedo:`,
+            title: `${title} | Concesionaria Esteban`,
+            text: `Mirá este ${title} disponible en Concesionaria Esteban, Coronel Oviedo:`,
             url: pageUrl
           });
           return;
@@ -488,7 +488,7 @@ function setupActionButtons(v) {
 
   // Compartir en WhatsApp
   if (shareWa) {
-    shareWa.href = `https://wa.me/?text=${encodeURIComponent(`Mirá este ${title} en Concesionaria Kevin: ${pageUrl}`)}`;
+    shareWa.href = `https://wa.me/?text=${encodeURIComponent(`Mirá este ${title} en Concesionaria Esteban: ${pageUrl}`)}`;
   }
 
   // Compartir en Facebook
@@ -660,8 +660,8 @@ async function loadSimilarVehicles(v) {
  * Actualiza Metadatos SEO, OpenGraph y Breadcrumbs
  */
 function updateSEOAndBreadcrumbs(v) {
-  const title = `${v.brand} ${v.model} ${v.year} | Concesionaria Kevin`;
-  const desc = `Comprá tu ${v.brand} ${v.model} año ${v.year} en Concesionaria Kevin Coronel Oviedo. ${formatPriceLocal(v.price)}. Financiación disponible a sola firma.`;
+  const title = `${v.brand} ${v.model} ${v.year} | Concesionaria Esteban`;
+  const desc = `Comprá tu ${v.brand} ${v.model} año ${v.year} en Concesionaria Esteban Coronel Oviedo. ${formatPriceLocal(v.price)}. Financiación disponible a sola firma.`;
   const image = (Array.isArray(v.images) && v.images[0]) ? v.images[0] : 'img/placeholder-vehicle.svg';
 
   // Título del documento

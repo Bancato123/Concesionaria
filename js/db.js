@@ -1,5 +1,5 @@
 /**
- * Concesionaria Kevin CONCESIONARIA - DATABASE & STORAGE LAYER (localStorage)
+ * Concesionaria Esteban CONCESIONARIA - DATABASE & STORAGE LAYER (localStorage)
  * Coronel Oviedo, Paraguay
  */
 
@@ -69,7 +69,7 @@ const DB = {
       const storedAdmin = this._get(this.KEYS.ADMIN, null);
       if (!storedAdmin || !storedAdmin.user || !storedAdmin.passHash) {
         this._set(this.KEYS.ADMIN, {
-          user: 'KevinAutomotores',
+          user: 'EstebanAutomotores',
           passHash: this._hash('Lalala123!')
         });
       }
@@ -78,7 +78,7 @@ const DB = {
       const storedSettings = this._get(this.KEYS.SETTINGS, null);
       if (!storedSettings) {
         this._set(this.KEYS.SETTINGS, {
-          siteName: 'Concesionaria Kevin',
+          siteName: 'Concesionaria Esteban',
           city: 'Coronel Oviedo',
           country: 'Paraguay',
           phone: '595994233136',
